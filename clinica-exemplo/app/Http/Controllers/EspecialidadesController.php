@@ -3,21 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class EspecialidadesController extends Controller
 {
     public function index() {
-        $series = [
-            'Grey\'s Anatomy',
-            'Lost',
-            'Agents of SHIELD'
-        ];
-        // print_r($series); exit;
-        return view('especialidades', compact('series'));
-    }
+        $response = Http::withHeaders([
+            'x-access-token' => env('ACCESS_TOKEN'),
+        ])->get('https://api.feegow.com/v1/api/specialties/list');
+        
+        // dd($response); 
+        $contents = $response->json()['content'];
 
-    public function create()
-    {
-        return view('series.create');
+        $especialidades = [];
+
+        foreach($contents as $content) {
+            $especialidades[$content['especialidade_id']] = $content['nome'];
+        }
+
+        return view('especialidades', compact('especialidades'));
     }
 }

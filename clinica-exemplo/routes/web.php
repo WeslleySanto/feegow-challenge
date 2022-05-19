@@ -30,6 +30,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/especialidades', 'App\Http\Controllers\EspecialidadesController@index');
-Route::get('/profissionais', 'Profissional@index');
+Route::post('/profissionais', 'App\Http\Controllers\ProfissionalController@index');
 Route::get('/agendar/{$id_profissional}', 'Agendar@index');
 
