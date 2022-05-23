@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Especialidades</title>
+        <title>@yield('titulo')</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
@@ -13,18 +13,8 @@
 
     </head>
     <body>
-        <form class="form-inline" method="POST" action="profissionais">
-            @csrf
-            <div class="form-group mx-sm-3 mb-2">
-                <label for="especialidade">Consulta de:</label>
-                <select class="form-control" name="especialidade" id="especialidade">
-                    <option>Selecione a especialidade</option>
-                    @foreach($especialidades as $key => $especialidade)
-                        <option value="<?=$key;?>"><?=$especialidade;?></option>
-                    @endforeach
-                </select>
-                <button class="btn btn-primary">Agendar</button>
-            </div>
-        </form>
+        <div class="container">
+            @yield('conteudo')
+        </div>
     </body>
 </html>

@@ -12,24 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/especialidades/lista', 'App\Http\Controllers\EspecialidadesController@lista');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/especialidades', function(){
-//     return view('especialidades');
-// });
-
-// Route::get('/profissionais', function(){
-//     return view('profissionais');
-// });
-
-// Route::get('/agendar/{$id_profissional}', function($id_profissional){
-//     return view('agendar');
-// });
-
-Route::get('/especialidades', 'App\Http\Controllers\EspecialidadesController@index');
-Route::post('/profissionais', 'App\Http\Controllers\ProfissionalController@index');
-Route::get('/agendar/{$id_profissional}', 'Agendar@index');
+Route::post('/profissionais/lista', 'App\Http\Controllers\ProfissionalController@lista');
+Route::get('/profissional/agendar/{id_profissional}', 'App\Http\Controllers\ProfissionalController@agendar');
+Route::post('/profissional/create', 'App\Http\Controllers\ProfissionalController@create');
 

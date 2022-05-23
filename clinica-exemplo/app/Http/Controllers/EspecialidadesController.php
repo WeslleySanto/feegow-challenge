@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class EspecialidadesController extends Controller
 {
-    public function index() {
+    public function lista() {
         $response = Http::withHeaders([
             'x-access-token' => env('ACCESS_TOKEN'),
-        ])->get('https://api.feegow.com/v1/api/specialties/list');
+        ])->get(env('URL_API_V1_FREEGOW') . '/specialties/list');
         
         // dd($response); 
         $contents = $response->json()['content'];
@@ -21,6 +20,8 @@ class EspecialidadesController extends Controller
             $especialidades[$content['especialidade_id']] = $content['nome'];
         }
 
-        return view('especialidades', compact('especialidades'));
+        $titulo = "Especialidades";
+
+        return view('especialidades.index', compact('titulo','especialidades'));
     }
 }
