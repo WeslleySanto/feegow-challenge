@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class EspecialidadesController extends Controller
 {
-    public function lista() {
+    public function create() {
         $response = Http::withHeaders([
             'x-access-token' => env('ACCESS_TOKEN'),
         ])->get(env('URL_API_V1_FREEGOW') . '/specialties/list');

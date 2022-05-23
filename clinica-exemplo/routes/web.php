@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/especialidades/lista', 'App\Http\Controllers\EspecialidadesController@lista');
+Route::get('/especialidades/lista', 'App\Http\Controllers\EspecialidadesController@create');
 
 Route::post('/profissionais/lista', 'App\Http\Controllers\ProfissionalController@lista');
-Route::get('/profissional/agendar/{id_profissional}', 'App\Http\Controllers\ProfissionalController@agendar');
-Route::post('/profissional/create', 'App\Http\Controllers\ProfissionalController@create');
+Route::get('/profissional/agendar/{id_profissional}', 'App\Http\Controllers\ProfissionalController@create');
+Route::post('/profissional/store', 'App\Http\Controllers\ProfissionalController@store');
+Route::post('/angendamentos', 'App\Http\Controllers\AgendamentosController@index');
 

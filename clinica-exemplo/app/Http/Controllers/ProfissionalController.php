@@ -23,7 +23,7 @@ class ProfissionalController extends Controller
         return view('profissionais.index', compact('titulo', 'profissionais', 'total'));
     }
 
-    public function agendar($id_profissional) {
+    public function create($id_profissional) {
         // dd($id_profissional); exit;
 
         $response = Http::withHeaders([
@@ -37,7 +37,21 @@ class ProfissionalController extends Controller
 
         $titulo = 'Agendar com Profissional';
 
-        return view('profissionais.agendar', compact('titulo', 'comoConheceu'));
+        return view('profissionais.create', compact('titulo', 'comoConheceu', 'id_profissional'));
+    }
+
+    public function store(Request $request)
+    {   
+        // dd($request);
+        $request->nomeCompleto;
+        $request->comoConheceu;
+        $request->nascimento;
+        $request->cpf;
+        $request->idProfissional;
+
+        $titulo = 'Confirmação agendamento';
+
+        return view('profissionais.store', compact('titulo'));
     }
 
 }
