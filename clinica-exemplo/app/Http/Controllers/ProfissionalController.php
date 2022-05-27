@@ -13,7 +13,6 @@ class ProfissionalController extends Controller
         ])
         ->get(env('URL_API_V1_FREEGOW') . '/professional/list', ['especialidade_id' => $request->especialidade]);
         
-        // dd($response->json());
         $profissionais = $response->json()['content'];
         
         $total = $response->json()['total'];
@@ -24,8 +23,6 @@ class ProfissionalController extends Controller
     }
 
     public function create($id_profissional) {
-        // dd($id_profissional); exit;
-
         $response = Http::withHeaders([
             'x-access-token' => env('ACCESS_TOKEN'),
         ])
@@ -33,25 +30,9 @@ class ProfissionalController extends Controller
 
         $comoConheceu = $response->json()['content'];
 
-        // dd($comoConheceu);
-
         $titulo = 'Agendar com Profissional';
 
         return view('profissionais.create', compact('titulo', 'comoConheceu', 'id_profissional'));
-    }
-
-    public function store(Request $request)
-    {   
-        // dd($request);
-        $request->nomeCompleto;
-        $request->comoConheceu;
-        $request->nascimento;
-        $request->cpf;
-        $request->idProfissional;
-
-        $titulo = 'Confirmação agendamento';
-
-        return view('profissionais.store', compact('titulo'));
     }
 
 }

@@ -13,7 +13,7 @@
                 <select class="form-control" name="especialidade" id="especialidade">
                     <option>Selecione a especialidade</option>
                     @foreach($especialidades as $key => $especialidade)
-                        <option value="<?=$key;?>"><?=$especialidade;?></option>
+                        <option value="{{$key}}">{{$especialidade}}</option>
                     @endforeach
                 </select>
                 <button class="btn btn-primary">Agendar</button>

@@ -13,7 +13,7 @@ class CriarTabelaAgendamento extends Migration
      */
     public function up()
     {
-        Schema::create('agendamento', function(Blueprint $table)
+        Schema::create('agendamentos', function(Blueprint $table)
         {
             $table->integer('specialty_id');
             $table->integer('professional_id');
@@ -31,6 +31,6 @@ class CriarTabelaAgendamento extends Migration
      */
     public function down()
     {
-        Schema::drop('agendamento');
+        Schema::drop('agendamentos');
     }
 }

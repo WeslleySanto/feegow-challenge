@@ -6,7 +6,7 @@
 
 @section('conteudo')
     <div class="row">
-        <form class="form-inline" method="POST" action="/profissional/store">
+        <form class="form-inline" method="POST" action="/agendamento/store">
             @csrf
             <div class="form-group mx-sm-3 mb-2">
                 <input name="nomeCompleto" placeholder="Nome completo"/>

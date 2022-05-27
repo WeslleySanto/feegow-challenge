@@ -16,6 +16,7 @@ Route::get('/especialidades/lista', 'App\Http\Controllers\EspecialidadesControll
 
 Route::post('/profissionais/lista', 'App\Http\Controllers\ProfissionalController@lista');
 Route::get('/profissional/agendar/{id_profissional}', 'App\Http\Controllers\ProfissionalController@create');
-Route::post('/profissional/store', 'App\Http\Controllers\ProfissionalController@store');
-Route::post('/angendamentos', 'App\Http\Controllers\AgendamentosController@index');
+
+Route::post('/agendamento/store', 'App\Http\Controllers\AgendamentoController@store');
+Route::get('/agendamento', 'App\Http\Controllers\AgendamentoController@index');
 
