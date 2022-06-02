@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/especialidades/lista', 'App\Http\Controllers\EspecialidadesController@create');
 
 Route::post('/profissionais/lista', 'App\Http\Controllers\ProfissionalController@lista');
-Route::get('/profissional/agendar/{id_profissional}', 'App\Http\Controllers\ProfissionalController@create');
+Route::get('/profissional/agendar/{id_profissional}/{especialidade}', 'App\Http\Controllers\ProfissionalController@create');
 
 Route::post('/agendamento/store', 'App\Http\Controllers\AgendamentoController@store');
 Route::get('/agendamento', 'App\Http\Controllers\AgendamentoController@index');

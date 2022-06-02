@@ -9,6 +9,7 @@ class Agendamento extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'source_id',
         'specialty_id',
         'professional_id',
         'name',

@@ -18,6 +18,7 @@
                 </select>
                 <input name="nascimento" placeholder="Nascimento" maxlength="10"/>
                 <input name="cpf" placeholder="CPF" maxlength="14" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"/>
+                <input type="hidden" name="idEspecialidade" value="{{$especialidade}}"/>
                 <input type="hidden" name="idProfissional" value="{{$id_profissional}}"/>
                 
                 <button class="btn btn-primary">Agendar</button>

@@ -14,6 +14,7 @@ class AgendamentoController extends Controller
 
         $mensagem = $request->session()->get('mensagem');
 
+        // dd($agendamentos);
         return view(
             'agendamento.index', 
             compact('titulo', 'agendamentos', 'mensagem')
@@ -22,8 +23,9 @@ class AgendamentoController extends Controller
 
     public function store(Request $request)
     {   
-        $agendamentos = Agendamento::create([
-            'specialty_id'      => $request->comoConheceu,
+        Agendamento::create([
+            'source_id'         => $request->comoConheceu,
+            'specialty_id'      => $request->idEspecialidade,
             'professional_id'   => $request->idProfissional,
             'name'              => $request->nomeCompleto,
             'cpf'               => $request->cpf,

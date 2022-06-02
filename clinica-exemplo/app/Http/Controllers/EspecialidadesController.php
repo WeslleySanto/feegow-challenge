@@ -6,13 +6,9 @@ use Illuminate\Support\Facades\Http;
 
 class EspecialidadesController extends Controller
 {
-    public function create() {
-        $response = Http::withHeaders([
-            'x-access-token' => env('ACCESS_TOKEN'),
-        ])->get(env('URL_API_V1_FREEGOW') . '/specialties/list');
-        
-        // dd($response); 
-        $contents = $response->json()['content'];
+    public function create() 
+    {
+        $contents = $this->listaEspecialidades();
 
         $especialidades = [];
 
@@ -22,6 +18,15 @@ class EspecialidadesController extends Controller
 
         $titulo = "Especialidades";
 
-        return view('especialidades.index', compact('titulo','especialidades'));
+        return view('especialidades.create', compact('titulo','especialidades'));
+    }
+
+    public function listaEspecialidades(): array
+    {
+        $response = Http::withHeaders([
+            'x-access-token' => env('ACCESS_TOKEN'),
+        ])->get(env('URL_API_V1_FREEGOW') . '/specialties/list');
+
+        return $response->json()['content'];
     }
 }

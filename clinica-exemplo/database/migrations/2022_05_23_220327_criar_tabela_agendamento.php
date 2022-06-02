@@ -15,7 +15,9 @@ class CriarTabelaAgendamento extends Migration
     {
         Schema::create('agendamentos', function(Blueprint $table)
         {
+            $table->increments('id');
             $table->integer('specialty_id');
+            $table->integer('source_id');
             $table->integer('professional_id');
             $table->string('name');
             $table->string('cpf');
