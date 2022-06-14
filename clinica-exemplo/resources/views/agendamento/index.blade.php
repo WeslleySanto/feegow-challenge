@@ -28,18 +28,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        @foreach($agendamentos as $agendamento)
+                    @foreach($agendamentos as $agendamento)
+                        <tr>
                             <th scope="row">{{$agendamento['id']}}</th>
-                            <td>{{$agendamento['specialty_id']}}</td>
-                            <td>{{$agendamento['professional_id']}}</td>
-
+                            <td>{{$agendamento['nome_especialidade']}}</td>
+                            <td>{{$agendamento['nome_profissional']}}</td>
                             <td>{{$agendamento['name']}}</td>
-                            <td>{{$agendamento['source_id']}}</td>
+                            <td>{{$agendamento['descricao_como_conheceu']}}</td>
                             <td>{{$agendamento['birthdate']}}</td>
                             <td>{{$agendamento['cpf']}}</td>
-                        @endforeach
-                    </tr>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         <div>

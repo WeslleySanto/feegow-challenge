@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Http;
+use App\Http\Api;
 
 class EspecialidadesController extends Controller
 {
+    protected Api $api;
+    
+    public function __construct()
+    {
+        $this->api = new Api();
+    }
+
     public function create() 
     {
-        $contents = $this->listaEspecialidades();
+        $contents = $this->api->listaEspecialidades();
 
         $especialidades = [];
 
@@ -21,12 +28,5 @@ class EspecialidadesController extends Controller
         return view('especialidades.create', compact('titulo','especialidades'));
     }
 
-    public function listaEspecialidades(): array
-    {
-        $response = Http::withHeaders([
-            'x-access-token' => env('ACCESS_TOKEN'),
-        ])->get(env('URL_API_V1_FREEGOW') . '/specialties/list');
-
-        return $response->json()['content'];
-    }
+    
 }

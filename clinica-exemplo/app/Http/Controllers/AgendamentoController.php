@@ -2,27 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Api;
 use App\Models\Agendamento;
 use Illuminate\Http\Request;
+use App\Http\Requests\AgendamentoFormRequest;
 
 class AgendamentoController extends Controller
 {
+    protected Api $api;
+    
+    public function __construct()
+    {
+        $this->api = new Api();
+    }
 
     public function index(Request $request) {
-        $agendamentos = Agendamento::query()->orderBy('name')->get();
+        $agendamentos = Agendamento::query()->orderBy('id')->get();
         $titulo = "Lista de Agendamentos";
+
+        foreach($agendamentos as $key => $agendamento) {
+            $agendamentos[$key]['nome_especialidade'] = $this->api->obtemNomeEspecialidadeByIdEspecialidade($agendamento['specialty_id']);
+            $agendamentos[$key]['nome_profissional'] = $this->api->obtemNomeProfissionalByIdProfissional($agendamento['professional_id']);
+            $agendamentos[$key]['descricao_como_conheceu'] = $this->api->obtemDescricaoComoConheceuById($agendamento['source_id']);
+        }
 
         $mensagem = $request->session()->get('mensagem');
 
-        // dd($agendamentos);
         return view(
             'agendamento.index', 
             compact('titulo', 'agendamentos', 'mensagem')
         );
     }
 
-    public function store(Request $request)
-    {   
+    public function store(AgendamentoFormRequest $request)
+    {
         Agendamento::create([
             'source_id'         => $request->comoConheceu,
             'specialty_id'      => $request->idEspecialidade,
