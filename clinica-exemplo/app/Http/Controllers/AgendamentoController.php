@@ -9,8 +9,6 @@ use App\Http\Requests\AgendamentoFormRequest;
 class AgendamentoController extends Controller
 {
     // @todo incluir mascara data nascimento e cpf
-    // @todo remover __contruct e colocar em controller
-    // @todo incluir padrao entrada sistema para especiliades/lista
 
     public function index(Request $request) {
         $agendamentos = Agendamento::query()->orderBy('id')->get();

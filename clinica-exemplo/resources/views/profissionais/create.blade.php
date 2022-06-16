@@ -34,10 +34,23 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input class="form-control" name="nascimento" placeholder="Nascimento" maxlength="10"/>
+                        <input class="form-control" 
+                            name="nascimento"
+                            id="nascimento"
+                            placeholder="Nascimento" 
+                            maxlength="10" 
+                            data-inputmask-alias="datetime" 
+                            data-inputmask-inputformat="dd/mm/yyyy" 
+                        />
                     </div>
                     <div class="form-group col-md-6">
-                        <input class="form-control" name="cpf" placeholder="CPF" maxlength="14" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"/>
+                        <input class="form-control" 
+                            name="cpf" 
+                            id="cpf"
+                            placeholder="CPF" 
+                            maxlength="14" 
+                            data-inputmask="'mask': '999.999.999-99'" 
+                        />
                     </div>            
                 </div>
                 <div class="form-row">
@@ -50,4 +63,10 @@
             </form>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('#nascimento').inputmask();
+            $('#cpf').inputmask();
+        });
+    </script>
 @endsection
