@@ -42,5 +42,10 @@
                 </tbody>
             </table>
         <div>
+        <div class="col-12"> 
+                <a href="{{route('listar_especialidades')}}" class="btn btn-primary">
+                    Listar especialidades    
+                </a>
+        </div>
     </div>
 @endsection
