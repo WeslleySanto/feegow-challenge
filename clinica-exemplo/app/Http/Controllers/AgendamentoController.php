@@ -8,8 +8,6 @@ use App\Http\Requests\AgendamentoFormRequest;
 
 class AgendamentoController extends Controller
 {
-    // @todo incluir mascara data nascimento e cpf
-
     public function index(Request $request) {
         $agendamentos = Agendamento::query()->orderBy('id')->get();
         $titulo = "Lista de Agendamentos";
