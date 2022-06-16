@@ -58,5 +58,6 @@ Qualquer dúvida técnica, envie uma mensagem para welcome.tech@feegow.com.br.
 Você terá 3 dias para fazer esse teste, a partir do recebimento deste desafio. Sucesso!
 
 ## Como usar?
+- copiar o arquivo ``.env.example`` para ``.env``
 - acessar a pasta ``clinica-exemplo`` e executar o seguinte comando ``php artisan serve``
 - no navegador acessar a url ``http://127.0.0.1:8000/especialidades/lista``
