@@ -3,11 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+/**
+ * Classe responsável por Profissional
+ * 
+ * @category Profissional
+ * @package  Profissional
+ * @author   Weslley Santo <weslley.santo@gmail.com>
+ * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @link     Profissional
+ */
 class ProfissionalController extends Controller
 {
 
-    public function lista(Request $request) {
+    /**
+     * Lista Profissionais
+     *
+     * @param Request $request request
+     * 
+     * @return void
+     */
+    public function lista(Request $request)
+    {
 
         $idEspecialidade = $request->especialidade;
 
@@ -23,13 +39,22 @@ class ProfissionalController extends Controller
             ->with('total', $retPE['total']);
     }
 
-    public function create($id_profissional, $especialidade) 
+    /**
+     * Agendar profissional
+     *
+     * @param integer $id_profissional id do profissional
+     * @param integer $especialidade   id da especialidade
+     * 
+     * @return void
+     */
+    public function create(int $id_profissional, int $especialidade) 
     {
         $comoConheceu = $this->api->comoConheceu();
 
         $titulo = 'Agendar com Profissional';
 
-        return view('profissionais.create', 
+        return view(
+            'profissionais.create', 
             compact('titulo', 'especialidade', 'comoConheceu', 'id_profissional')
         );
     }
