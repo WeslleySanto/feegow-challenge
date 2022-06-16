@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Api;
 use App\Models\Agendamento;
 use Illuminate\Http\Request;
 use App\Http\Requests\AgendamentoFormRequest;
 
 class AgendamentoController extends Controller
 {
-    protected Api $api;
-    
-    public function __construct()
-    {
-        $this->api = new Api();
-    }
+    // @todo incluir mascara data nascimento e cpf
+    // @todo remover __contruct e colocar em controller
+    // @todo incluir padrao entrada sistema para especiliades/lista
 
     public function index(Request $request) {
         $agendamentos = Agendamento::query()->orderBy('id')->get();

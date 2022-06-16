@@ -2,16 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Api;
-
 class EspecialidadesController extends Controller
 {
-    protected Api $api;
-    
-    public function __construct()
-    {
-        $this->api = new Api();
-    }
 
     public function create() 
     {

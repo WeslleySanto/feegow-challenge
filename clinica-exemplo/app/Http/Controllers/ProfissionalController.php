@@ -2,17 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Api;
 use Illuminate\Http\Request;
 
 class ProfissionalController extends Controller
 {
-    protected Api $api;
-    
-    public function __construct()
-    {
-        $this->api = new Api();
-    }
 
     public function lista(Request $request) {
 
